@@ -1,13 +1,9 @@
-from time import sleep
 from behave import *
-
-
-
 @Given('I am on the login page')
 def step_impl(context):
     context.login_page.get_page()
 
-@When('I input a username "{user}" and password "{pwd}"')
+@When('I input a username "problem_user" and password "secret_sauce"')
 def step_impl(context,user,pwd):
     context.login_page.input_username(user)
     context.login_page.input_password(pwd)
@@ -24,4 +20,12 @@ def step_impl(context):
 
 
 
+@Given ('I am on the products page')
+@When ('Click to add all to inventory')
+@Then ('I click to remove all items')
 
+
+@Given ('I add all products in inventory')
+@When ('I am on the inventory page and click Checkout')
+@When ('I enter all data for order')
+@Then ('I click Continue to Finish order')

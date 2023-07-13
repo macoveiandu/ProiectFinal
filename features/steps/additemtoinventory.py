@@ -16,3 +16,11 @@ def step_impl(context):
 @Then('I continue shopping')
 def step_impl(context):
     context.add_item.go_back_products()
+
+@Given ('I am on the product page and click Checkout')
+
+@When ('I fill with data')
+
+@When ('I click Continue to finish order')
+
+@Then('Apear Order Complete')
