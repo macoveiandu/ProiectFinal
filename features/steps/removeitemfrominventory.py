@@ -1,39 +1,45 @@
 from behave import *
 
-@Given('I am on the login page')
+@Given('I am in login page')
 def step_impl(context):
     context.login_page.get_page()
 
-@When('I input a username "problem_user" and password "secret_sauce"')
-def step_impl(context,user,pwd):
-    context.login_page.input_username(user)
-    context.login_page.input_password(pwd)
+@When('I input a username and pass')
+def step_impl(context):
+    context.login_page.input_username('problem_user')
+    context.login_page.input_password('secret_sauce')
     #sleep(1)
 
 @When ('I click on login button')
 def step_impl(context):
     context.login_page.click_login_button()
 
-@Then('I am on the main page')
+@Then('I am on main page')
 def step_impl(context):
     #sleep(3)
     assert context.login_page.get_url() == 'https://www.saucedemo.com/inventory.html'
 
-@Given ('I am on the products page')
+#-------------
+
+@Given ('I am on the prod page')
+def step_impl(context):
+    assert context.login_page.get_url() == 'https://www.saucedemo.com/inventory.html'
 @When ('Click to add all to inventory')
-@Then ('I click to remove all items')
+def step_impl(context):
+    context.add_item.click_add_item()
+    context.add_item.go_to_inv()
+@Then ('I check its all in inventory')
+def step_impl(context):
+    context.inventory.inventory_count()
 
-
+#--------------
 @Given ('I am on the products page')
-@When ('Click to add all to inventory')
-@Then ('I click on inventory to remove all items')
-
-
-@Given ('I am on the product page i check image')
-@When ('I click on product')
-@Then ('check images are the same')
-
-
-@Given ('I am on the products page')
-@When ('I click on product')
-@Then ('products its correct')
+def step_impl(context):
+    assert context.login_page.get_url() == 'https://www.saucedemo.com/inventory.html'
+@When ('Add all items to inventory')
+def step_impl(context):
+    context.context.add_item.click_add_item()
+@Then ('I click on inventory to remove all items and check it')
+def step_impl(context):
+    context.remove_item.click_item_remove()
+    context.remove_item.check_items_removed()

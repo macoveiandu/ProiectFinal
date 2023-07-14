@@ -1,8 +1,6 @@
 from time import sleep
 from behave import *
 
-
-
 @Given('I am on the login page')
 def step_impl(context):
     context.login_page.get_page()
@@ -13,7 +11,7 @@ def step_impl(context,user,pwd):
     context.login_page.input_password(pwd)
     #sleep(1)
 
-@When ('I click on login button')
+@When ('I click on login buton')
 def step_impl(context):
     context.login_page.click_login_button()
 
@@ -21,7 +19,6 @@ def step_impl(context):
 def step_impl(context):
     #sleep(3)
     assert context.login_page.get_url() == 'https://www.saucedemo.com/inventory.html'
-
 
 
 

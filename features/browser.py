@@ -8,6 +8,7 @@ class Browser:
         service = Service(ChromeDriverManager().install())
         self.driver = Chrome(service=service)
         self.driver.maximize_window()
+        #self.driver.execute_script(("window.scrollTo(0, document.body.scrollHeight);"))
         self.driver.implicitly_wait(10)
 
     def close(self):

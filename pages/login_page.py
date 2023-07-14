@@ -7,7 +7,6 @@ class LoginPage:
     PASSWORD_SELECTOR = (By.XPATH, '//input[@placeholder="Password"]')
     LOGIN_BUTTON_SELECTOR = (By.CSS_SELECTOR, 'input[type="Submit"]')
 
-
     def __init__(self, browser):
         self.driver = browser.driver
 
@@ -28,4 +27,3 @@ class LoginPage:
 
     def get_url(self):
         return self.driver.current_url
-

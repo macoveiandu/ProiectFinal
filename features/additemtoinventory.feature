@@ -7,9 +7,9 @@ Feature: add item to inventory
 
   @adaugareprodusincos
   Scenario: Add item to inventory
-    Given I am on the products page
+    Given I am on the items page
     When Click to add to inventory
-    Then I continue shopping
+    Then I click on inventory
 
   @finalizareComanda
   Scenario: Finish order

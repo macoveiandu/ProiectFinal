@@ -10,7 +10,7 @@ Feature: Login on app
   Scenario Outline: Login with multiple parametres
     Given I am on the login page
     When I input a username "<username>" and password "<password>"
-    And  I click on login button
+    And  I click on login buton
     Then I am on the main page
 
     Examples:
